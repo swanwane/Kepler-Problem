@@ -1,0 +1,19 @@
+restart;
+T := (1/2)*m*((diff(r(t), t))^2+r(t)^2*(diff(phi(t), t))^2); 
+V := -G*M*m/r(t);
+L := T-V;
+L1 := subs({diff(phi(t), t) = var4, diff(r(t), t) = 
+var2, phi(t) = var3, r(t) = var1}, L);
+Epr11 := diff(L1, var4);
+Epr12 := diff(L1, var3);
+Epr13 := subs({var1 = r(t), var2 = diff(r(t), t),
+var3 = phi(t), var4 = diff(phi(t), t)}, Epr11);
+Eq14 := Epr13 = l;
+Epr21 := diff(L1, var2);
+Epr22 := diff(L1, var1);
+Epr23 := subs({var1 = r(t), var2 = diff(r(t), t),
+var3 = phi(t), var4 = diff(phi(t), t)}, Epr21);
+Epr24 := subs({var1 = r(t), var2 = diff(r(t), t), 
+var3 = phi(t), var4 = diff(phi(t), t)}, Epr22);
+Epr25 := diff(Epr23, t);
+Eq26 := Epr25-Epr24 = 0;
